@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ExpandingVocabulary</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_text">ExpandingVocabulary</string>
+    <string name="question_text">Repeat some English words?</string>
+    <string name="play_button">Let\'s go</string>
+    <string name="score_text">Your score</string>
+    <string name="back_button">Play Again</string>
+    <string name="need_translate_word">Translate word</string>
+    <string name="skip_text">Skip</string>
+    <string name="i_know">I know it</string>
 </resources>
