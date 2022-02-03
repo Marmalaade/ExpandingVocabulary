@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.expandingvocabulary.R
 import com.example.expandingvocabulary.databinding.FragmentGameBinding
@@ -14,59 +16,36 @@ import com.example.expandingvocabulary.databinding.FragmentGameBinding
 class GameFragment : Fragment() {
 
     private lateinit var binding: FragmentGameBinding
-    private lateinit var wordList: MutableList<String>
+    private lateinit var viewModel: GameViewModel
 
-    private var score = 0
-    private var word = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_game, container, false)
-        updateWordsList()
-        next()
-        binding.correctButton.setOnClickListener { onCorrect() }
-        binding.skipButton.setOnClickListener { onWrong() }
+        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+
+        binding.correctButton.setOnClickListener {
+            viewModel.onCorrect()
+            updateBinding()
+        }
+        binding.skipButton.setOnClickListener {
+            viewModel.onWrong()
+            updateBinding()
+        }
         updateBinding()
 
         return binding.root
     }
 
-    private fun onWrong() {
-        if (score > 0) {
-            score--
-        }
-        next()
-    }
-
-    private fun next() {
-        if (wordList.isEmpty()) {
-            findNavController().navigate(GameFragmentDirections.actionGameFragmentToScoreFragment(score))
-        } else {
-            word = wordList.removeAt(0)
-        }
-        updateBinding()
-    }
-
-    private fun onCorrect() {
-        score++
-        next()
-    }
-
-    private fun updateWordsList() {
-        wordList = mutableListOf(
-            "extensions",
-            "opportunity",
-            "flexibility",
-            "behavior"
-        )
-        wordList.shuffle()
+    private fun gameFinished() {
+        findNavController().navigate(GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel.score))
     }
 
     private fun updateBinding() {
-        binding.scoreText.text = score.toString()
-        binding.wordText.text = word
+        binding.scoreText.text = viewModel.score.toString()
+        binding.wordText.text = viewModel.word
     }
 
 }
