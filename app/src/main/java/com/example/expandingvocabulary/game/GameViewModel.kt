@@ -1,16 +1,29 @@
 package com.example.expandingvocabulary.game
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
     private lateinit var wordList: MutableList<String>
-    var score = 0
-    var word = ""
+    private val _score = MutableLiveData<Int>()
+    private val _word = MutableLiveData<String>()
+    private val _eventGameFinish = MutableLiveData<Boolean>()
+
+    val score: LiveData<Int>
+        get() = _score
+    val word: LiveData<String>
+        get() = _word
+    val eventGameFinish: LiveData<Boolean>
+        get() = _eventGameFinish
 
     init {
         updateWordsList()
         next()
+        _score.value = 0
+        _word.value = ""
+        _eventGameFinish.value = false
     }
 
     private fun updateWordsList() {
@@ -25,21 +38,26 @@ class GameViewModel : ViewModel() {
 
     private fun next() {
         if (wordList.isEmpty()) {
-            // gameFinished()
+            _eventGameFinish.value = true
         } else {
-            word = wordList.removeAt(0)
+            _word.value = wordList.removeAt(0)
         }
     }
 
     fun onWrong() {
-        if (score > 0) {
-            score--
+        if (score.value!! > 0) {
+            _score.value = (score.value)?.minus(1)
         }
         next()
     }
 
     fun onCorrect() {
-        score++
+        _score.value = (score.value)?.plus(1)
         next()
     }
+
+    fun onGameFinishComplete() {
+        _eventGameFinish.value = false
+    }
+
 }
