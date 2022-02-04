@@ -1,6 +1,7 @@
 package com.example.expandingvocabulary.game
 
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,6 @@ class GameFragment : Fragment() {
 
     private lateinit var binding: FragmentGameBinding
     private lateinit var viewModel: GameViewModel
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +44,10 @@ class GameFragment : Fragment() {
                 viewModel.onGameFinishComplete()
             }
         })
+        viewModel.currentTime.observe(viewLifecycleOwner, Observer { updatedTime ->
+            binding.timerText.text = DateUtils.formatElapsedTime(updatedTime)
+        })
+
         return binding.root
     }
 
