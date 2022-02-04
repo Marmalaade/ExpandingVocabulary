@@ -10,7 +10,7 @@ class GameViewModel : ViewModel() {
     companion object {
         const val DONE = 0L
         const val ONE_SECOND = 1000L
-        const val TIME = 30000L
+        const val TIME = 5000L
     }
 
     private val timer: CountDownTimer
@@ -34,7 +34,6 @@ class GameViewModel : ViewModel() {
         updateWordsList()
         next()
         _score.value = 0
-        _word.value = ""
         _eventGameFinish.value = false
         _currentTime.value = 10L
         timer = object : CountDownTimer(TIME, ONE_SECOND) {
