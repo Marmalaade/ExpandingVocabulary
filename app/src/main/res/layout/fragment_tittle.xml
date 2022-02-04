@@ -38,6 +38,18 @@
             app:layout_constraintTop_toBottomOf="@+id/get_ready_text"
             app:layout_constraintVertical_chainStyle="packed" />
 
+        <ImageButton
+            android:id="@+id/info_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/play_game_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_text"
+            app:srcCompat="@drawable/ic_round_info_24"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
         <Button
             android:id="@+id/play_game_button"
             android:layout_width="wrap_content"

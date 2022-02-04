@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/drawable/dialog_background.xml" value="0.15572916666666667" />
+        <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/drawable/ic_round_info_24.xml" value="0.15572916666666667" />
         <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/layout/custom_dialog.xml" value="0.536" />
+        <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/layout/fragment_dialog.xml" value="0.2" />
         <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/layout/fragment_game.xml" value="0.536" />
         <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/layout/fragment_score.xml" value="0.1" />
         <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/layout/fragment_tittle.xml" value="0.1" />
+        <entry key="..\:/SoftProgramms/ASprojects/ExpandingVocabulary/app/src/main/res/menu/info_menu.xml" value="0.13958333333333334" />
       </map>
     </option>
   </component>
