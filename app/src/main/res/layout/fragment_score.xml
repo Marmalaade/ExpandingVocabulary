@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="scoreViewModel"
+            type="com.example.expandingvocabulary.score.ScoreViewModel" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
@@ -15,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/low_space"
             android:layout_marginBottom="@dimen/low_space"
-            android:text="@string/score_text"
+            android:text="@{@string/final_score_format(scoreViewModel.score)}"
             app:layout_constraintBottom_toTopOf="@+id/title_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -43,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/big_space"
+            android:onClick="@{() -> scoreViewModel.onPlayAgain()}"
             android:text="@string/back_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,8 +1,10 @@
 package com.example.expandingvocabulary.game
 
 import android.os.CountDownTimer
+import android.text.format.DateUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
@@ -29,6 +31,9 @@ class GameViewModel : ViewModel() {
         get() = _eventGameFinish
     val currentTime: LiveData<Long>
         get() = _currentTime
+    val currentTimeStringFormat = Transformations.map(currentTime) { time ->
+        DateUtils.formatElapsedTime(time)
+    }
 
     init {
         updateWordsList()

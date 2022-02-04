@@ -10,4 +10,7 @@
     <string name="need_translate_word">Translate word</string>
     <string name="skip_text">Skip</string>
     <string name="i_know">I know it</string>
+    <string name="quote_format">\"%s\"</string>
+    <string name="score_format">Current score:%d</string>
+    <string name="final_score_format">Your score:%d</string>
 </resources>
