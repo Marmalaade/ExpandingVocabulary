@@ -12,7 +12,7 @@ class GameViewModel : ViewModel() {
     companion object {
         const val DONE = 0L
         const val ONE_SECOND = 1000L
-        const val TIME = 10000L
+        const val TIME = 60000L
     }
 
     private val timer: CountDownTimer
@@ -68,7 +68,7 @@ class GameViewModel : ViewModel() {
             "persuade",
             "harass",
             "exaggerate",
-            "accommodation",
+            "experience",
             "telltale",
             "onlooker",
             "breakthrough",
@@ -120,7 +120,6 @@ class GameViewModel : ViewModel() {
         super.onCleared()
         timer.cancel()
     }
-
 
 
 }

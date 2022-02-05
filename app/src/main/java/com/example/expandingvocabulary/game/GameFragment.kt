@@ -1,12 +1,12 @@
 package com.example.expandingvocabulary.game
 
 import android.os.Bundle
-import android.text.format.DateUtils
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.translation.Translator
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -65,13 +65,24 @@ class GameFragment : Fragment() {
 
         if (binding.wordText.text.isNotEmpty()) {
             translator.downloadModelIfNeeded()
-                .addOnSuccessListener { Toast.makeText(context, "Download Successful", Toast.LENGTH_SHORT).show() }
                 .addOnFailureListener { Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show() }
         }
         translator.translate(binding.wordText.text.toString())
             .addOnSuccessListener {
-                binding.translatedWord.visibility = View.VISIBLE
-                binding.translatedWord.text = it
+                binding.translatedWord.apply {
+                    visibility = View.VISIBLE
+                    text = it
+                }
+                binding.translatedWord.clearAnimation()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.translatedWord.apply {
+                        if (binding.translatedWord.alpha == 1f) {
+                            startAnimation(AnimationUtils.loadAnimation(context, R.anim.alpha_animation))
+                            visibility = View.INVISIBLE
+                        }
+                    }
+                }, 1000)
+                binding.translatedWord.clearAnimation()
             }.addOnFailureListener {
                 it.printStackTrace()
             }

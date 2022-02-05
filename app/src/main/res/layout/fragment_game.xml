@@ -26,6 +26,7 @@
             android:fontFamily="@font/prosto_one"
             android:text="@{@string/quote_format(gameViewModel.translatedWord)}"
             android:visibility="gone"
+            android:textSize="26sp"
             app:layout_constraintBottom_toTopOf="@+id/translate_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
