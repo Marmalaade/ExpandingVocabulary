@@ -12,7 +12,7 @@ class GameViewModel : ViewModel() {
     companion object {
         const val DONE = 0L
         const val ONE_SECOND = 1000L
-        const val TIME = 5000L
+        const val TIME = 60000L
     }
 
     private val timer: CountDownTimer
@@ -59,7 +59,36 @@ class GameViewModel : ViewModel() {
             "extensions",
             "opportunity",
             "flexibility",
-            "behavior"
+            "behavior",
+            "achievable",
+            "performance",
+            "persuade",
+            "harass",
+            "exaggerate",
+            "accommodation",
+            "telltale",
+            "onlooker",
+            "breakthrough",
+            "withdraw",
+            "remuneration",
+            "prioritising",
+            "review",
+            "daydream",
+            "literally",
+            "nonplussed",
+            "disinterested",
+            "unabashed",
+            "accommodate",
+            "deduction",
+            "flabbergasted",
+            "oblivious",
+            "sustainable",
+            "quaint",
+            "ecstasy",
+            "supersede",
+            "superfluous",
+            "maintenance",
+            "liaison"
         )
         wordList.shuffle()
     }
@@ -72,9 +101,6 @@ class GameViewModel : ViewModel() {
     }
 
     fun onWrong() {
-        if (score.value!! > 0) {
-            _score.value = (score.value)?.minus(1)
-        }
         next()
     }
 
