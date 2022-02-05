@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -22,6 +23,7 @@ open class TittleFragment : Fragment() {
     ): View? {
         val binding: FragmentTittleBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_tittle, container, false)
         binding.infoButton.setOnClickListener {
+            binding.infoButton.startAnimation(AnimationUtils.loadAnimation(context, R.anim.scale_animation))
             showInfoDialog()
         }
         binding.playGameButton.setOnClickListener {

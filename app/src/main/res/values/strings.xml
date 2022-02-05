@@ -11,10 +11,11 @@
     <string name="skip_text">Skip</string>
     <string name="i_know">I know it</string>
     <string name="quote_format">\"%s\"</string>
-    <string name="score_format">Current score:%d</string>
-    <string name="final_score_format">Your score:%d</string>
+    <string name="score_format">Current score: %d</string>
+    <string name="final_score_format">Your score: %d</string>
     <string name="true_thing">Type more, see more!</string>
-    <string name="rules_info">You have a minute to check if you can translate all the words. If the translation is familiar to you, click on the "I know" button, if not, skip the word. Don\'t kid yourself :)</string>
+    <string name="translate_text">Translate</string>
+    <string name="rules_info">You have a minute to check if you can translate all the words. If the translation is familiar to you, click on the "I know" button, if not, skip the word. If u do not know the word, then click on "translate" to remember it in the future. Don\'t kid yourself. Regards Marmalade :)</string>
 
 
 </resources>

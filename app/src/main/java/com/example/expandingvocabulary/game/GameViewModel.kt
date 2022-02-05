@@ -12,7 +12,7 @@ class GameViewModel : ViewModel() {
     companion object {
         const val DONE = 0L
         const val ONE_SECOND = 1000L
-        const val TIME = 60000L
+        const val TIME = 10000L
     }
 
     private val timer: CountDownTimer
@@ -22,6 +22,7 @@ class GameViewModel : ViewModel() {
     private val _word = MutableLiveData<String>()
     private val _eventGameFinish = MutableLiveData<Boolean>()
     private val _currentTime = MutableLiveData<Long>()
+    private val _translatedWord = MutableLiveData<String>()
 
     val score: LiveData<Int>
         get() = _score
@@ -34,6 +35,8 @@ class GameViewModel : ViewModel() {
     val currentTimeStringFormat = Transformations.map(currentTime) { time ->
         DateUtils.formatElapsedTime(time)
     }
+    val translatedWord: LiveData<String>
+        get() = _translatedWord
 
     init {
         updateWordsList()
@@ -117,5 +120,7 @@ class GameViewModel : ViewModel() {
         super.onCleared()
         timer.cancel()
     }
+
+
 
 }
